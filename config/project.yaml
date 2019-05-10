@@ -1,0 +1,898 @@
+dateModified: 1557422283
+email:
+  fromEmail: alasdair.monk@gmail.com
+  fromName: 'Lampon Lets'
+  transportType: craft\mail\transportadapters\Sendmail
+fieldGroups:
+  bc0977f5-7719-4a8c-9173-4ded42e029d4:
+    name: Common
+  65acfa6f-fc6e-42e6-bca9-b4453beaea0a:
+    name: Property
+  fabdda15-fd30-4bfd-a455-2edb39ddd76b:
+    name: Home
+  af125180-747a-4037-9a07-5cddcba5d446:
+    name: News
+  da8cc4e4-87ae-4382-a7d1-3d3683fced5a:
+    name: About
+  12a70647-bea3-4c73-81db-f2355b007147:
+    name: Page
+fields:
+  12509d95-9ff9-4e7a-a147-d6fa2b766f93:
+    name: Price
+    handle: price
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\Number
+    settings:
+      defaultValue: null
+      min: '0'
+      max: null
+      decimals: 0
+      size: null
+      prefix: ''
+      suffix: ''
+    contentColumnType: integer(10)
+    fieldGroup: 65acfa6f-fc6e-42e6-bca9-b4453beaea0a
+  d7bb9a49-22f1-4e12-9361-70d29be8e197:
+    name: Address
+    handle: address
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    fieldGroup: 65acfa6f-fc6e-42e6-bca9-b4453beaea0a
+    contentColumnType: text
+  d0cf71ce-6815-40ea-bb3c-1100fc232560:
+    name: Images
+    handle: images
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Assets
+    settings:
+      useSingleFolder: '1'
+      defaultUploadLocationSource: 'volume:7b33aeb6-69a4-45bd-b0a9-e934b60cc259'
+      defaultUploadLocationSubpath: ''
+      singleUploadLocationSource: 'volume:7b33aeb6-69a4-45bd-b0a9-e934b60cc259'
+      singleUploadLocationSubpath: ''
+      restrictFiles: ''
+      allowedKinds: null
+      sources: '*'
+      source: null
+      targetSiteId: null
+      viewMode: list
+      limit: ''
+      selectionLabel: ''
+      localizeRelations: false
+    fieldGroup: 65acfa6f-fc6e-42e6-bca9-b4453beaea0a
+    contentColumnType: string
+  49316208-a3f7-4b64-a45b-7e290c80c5d6:
+    name: Features
+    handle: features
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: verbb\supertable\fields\SuperTableField
+    settings:
+      minRows: '1'
+      maxRows: '1'
+      contentTable: '{{%stc_features}}'
+      localizeBlocks: false
+      staticField: '1'
+      columns:
+        8:
+          width: ''
+        9:
+          width: ''
+        10:
+          width: ''
+        11:
+          width: ''
+        12:
+          width: ''
+        13:
+          width: ''
+        14:
+          width: ''
+        15:
+          width: ''
+        16:
+          width: ''
+        17:
+          width: ''
+      fieldLayout: row
+      selectionLabel: ''
+    contentColumnType: string
+    fieldGroup: 65acfa6f-fc6e-42e6-bca9-b4453beaea0a
+  8eaa86f8-42dd-4af1-a5ed-7a4c3377122f:
+    name: 'Jupix ID'
+    handle: jupixId
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: '1'
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    fieldGroup: 65acfa6f-fc6e-42e6-bca9-b4453beaea0a
+    contentColumnType: text
+  f486e081-3027-48d5-8a0a-0a03e8c8c677:
+    name: Announcement
+    handle: announcement
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Entries
+    settings:
+      sources:
+        - 'section:c3192151-c659-4e50-be4d-9582e960ee70'
+      source: null
+      targetSiteId: null
+      viewMode: null
+      limit: '1'
+      selectionLabel: ''
+      localizeRelations: false
+    contentColumnType: string
+    fieldGroup: fabdda15-fd30-4bfd-a455-2edb39ddd76b
+  d689fbf7-d4a8-42f4-bb0f-9dfeaa89c7a0:
+    name: Body
+    handle: body
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\ckeditor\Field
+    settings:
+      purifierConfig: ''
+      purifyHtml: '1'
+      columnType: text
+    contentColumnType: text
+    fieldGroup: af125180-747a-4037-9a07-5cddcba5d446
+  e272e892-0f48-4603-9673-3d1ee1172396:
+    name: 'Phone number'
+    handle: phoneNumber
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: bc0977f5-7719-4a8c-9173-4ded42e029d4
+  ccf2da5c-ec2c-4d48-9c63-85d97379069f:
+    name: ' Content Builder'
+    handle: contentBuilder
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Matrix
+    settings:
+      minBlocks: ''
+      maxBlocks: ''
+      contentTable: '{{%matrixcontent_contentbuilder}}'
+      localizeBlocks: false
+    contentColumnType: string
+    fieldGroup: da8cc4e4-87ae-4382-a7d1-3d3683fced5a
+  ae504739-70d1-458f-9b8b-ffe9133a3b6b:
+    name: Details
+    handle: details
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: '1'
+      multiline: '1'
+      initialRows: '4'
+      charLimit: ''
+      columnType: text
+    contentColumnType: text
+    fieldGroup: 65acfa6f-fc6e-42e6-bca9-b4453beaea0a
+  0ee43e95-744a-4c4a-accf-ec274a78211b:
+    name: Bedrooms
+    handle: bedrooms
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\Number
+    settings:
+      defaultValue: null
+      min: '0'
+      max: null
+      decimals: 0
+      size: null
+      prefix: ''
+      suffix: ''
+    contentColumnType: integer(10)
+    fieldGroup: 65acfa6f-fc6e-42e6-bca9-b4453beaea0a
+  fdb580b9-9994-4352-bb39-52b61d578fbb:
+    name: Bathrooms
+    handle: bathrooms
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\Number
+    settings:
+      defaultValue: null
+      min: '0'
+      max: null
+      decimals: 0
+      size: null
+      prefix: ''
+      suffix: ''
+    contentColumnType: integer(10)
+    fieldGroup: 65acfa6f-fc6e-42e6-bca9-b4453beaea0a
+globalSets:
+  c7540cde-e26c-46ce-b3c1-7ef1f471e748:
+    name: 'Company Info'
+    handle: companyInfo
+    fieldLayouts:
+      cf3add0f-ea73-4a8a-9793-35bb04016909:
+        tabs:
+          -
+            name: Common
+            sortOrder: 1
+            fields:
+              e272e892-0f48-4603-9673-3d1ee1172396:
+                required: false
+                sortOrder: 1
+matrixBlockTypes:
+  7c38e814-4c55-4007-bf25-db1ed2a42b0f:
+    field: 49316208-a3f7-4b64-a45b-7e290c80c5d6
+    name: Feature
+    handle: feature
+    sortOrder: 1
+    fields:
+      f63fcb39-b2f4-4151-a58f-bad70066243e:
+        name: 'Feature description'
+        handle: featureDescription
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      1e291483-4691-4637-9b00-4b648d98502e:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              f63fcb39-b2f4-4151-a58f-bad70066243e:
+                required: false
+                sortOrder: 1
+  ee8e6e9a-ee29-40d2-bee5-42609f4c58d7:
+    field: ccf2da5c-ec2c-4d48-9c63-85d97379069f
+    name: Paragraph
+    handle: paragraph
+    sortOrder: 2
+    fields:
+      236488ba-7edc-41fe-a57d-cc6bdf757a4f:
+        name: 'Paragraph Copy'
+        handle: paragraphCopy
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\ckeditor\Field
+        settings:
+          purifierConfig: ''
+          purifyHtml: '1'
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      14ef2ad3-c818-4bd1-b3a9-92e8249fcfb0:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              236488ba-7edc-41fe-a57d-cc6bdf757a4f:
+                required: false
+                sortOrder: 1
+  e1fce45c-6e3a-4e48-9287-6618b3c3fdbf:
+    field: ccf2da5c-ec2c-4d48-9c63-85d97379069f
+    name: Heading
+    handle: heading
+    sortOrder: 1
+    fields:
+      d0b66ad2-c780-4590-9c27-c77b828cdac1:
+        name: Type
+        handle: headingType
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Dropdown
+        settings:
+          options:
+            -
+              label: Large
+              value: large
+              default: ''
+            -
+              label: Medium
+              value: medium
+              default: '1'
+            -
+              label: Small
+              value: small
+              default: ''
+        contentColumnType: string
+        fieldGroup: null
+      3a929a44-88fa-4779-a5cd-57cabfe43647:
+        name: Text
+        handle: headingText
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      c12d36e9-43c6-4ba8-bd82-c1727addb5b6:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              d0b66ad2-c780-4590-9c27-c77b828cdac1:
+                required: false
+                sortOrder: 1
+              3a929a44-88fa-4779-a5cd-57cabfe43647:
+                required: false
+                sortOrder: 2
+  ab9aade1-49d3-4257-8578-82bdd73950c7:
+    field: ccf2da5c-ec2c-4d48-9c63-85d97379069f
+    name: 'Fees Table'
+    handle: feesTable
+    sortOrder: 3
+    fields:
+      0ad7fe6d-acee-4a78-b715-e2ad27cb8241:
+        name: 'Fees Table'
+        handle: feesTable
+        instructions: 'VAT will be automatically calculated'
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\Table
+        settings:
+          addRowLabel: 'Add a row'
+          maxRows: ''
+          minRows: ''
+          columns:
+            col1:
+              heading: Fee
+              handle: fee
+              width: ''
+              type: singleline
+            col2:
+              heading: 'Without VAT'
+              handle: withoutVat
+              width: ''
+              type: number
+            col4:
+              heading: Description
+              handle: description
+              width: ''
+              type: singleline
+          defaults:
+            -
+              col1: ''
+              col2: ''
+              col4: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      179ea091-f6ba-4d35-a85d-431112dd467b:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              0ad7fe6d-acee-4a78-b715-e2ad27cb8241:
+                required: false
+                sortOrder: 1
+plugins:
+  feed-me:
+    settings:
+      pluginName: Connect
+      cache: '60'
+      enabledTabs: '*'
+      requestOptions:
+        headers:
+          User-Agent: 'Feed Me'
+      compareContent: true
+      skipUpdateFieldHandle: ''
+      backupLimit: 100
+      dataDelimiter: '-|-'
+      csvColumnDelimiter: ','
+      sleepTime: 0
+      logging: true
+      runGcBeforeFeed: false
+      queueTtr: 300
+      queueMaxRetry: 5
+      assetDownloadCurl: false
+    licenseKey: null
+    enabled: '1'
+    schemaVersion: 2.1.2
+  dashboard-begone:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.10
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  expanded-singles:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      expandSingles: '1'
+      redirectToEntry: '1'
+  contact-form:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      toEmail: alasdair.monk@gmail.com
+      prependSender: 'On behalf of'
+      prependSubject: 'New message from Lampon Lets'
+      allowAttachments: ''
+      successFlashMessage: 'Your message has been sent.'
+  matrixtoolbar:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.4
+routes:
+  15fc8e7c-77ac-4800-9a2b-d1dd6a2db075:
+    template: forms/contact
+    uriParts:
+      - contact
+    uriPattern: contact
+    sortOrder: 1
+    siteUid: null
+sections:
+  78ea8921-08a7-4243-9664-c48f82082e4e:
+    name: Properties
+    handle: properties
+    type: channel
+    enableVersioning: true
+    propagateEntries: true
+    entryTypes:
+      5c3d49af-b3b6-42ea-9a0f-9b57417a05e4:
+        name: Properties
+        handle: properties
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: ''
+        sortOrder: 1
+        fieldLayouts:
+          abd4321c-cdc4-424c-baf3-4a8ab94afa5a:
+            tabs:
+              -
+                name: Property
+                sortOrder: 1
+                fields:
+                  d7bb9a49-22f1-4e12-9361-70d29be8e197:
+                    required: false
+                    sortOrder: 1
+                  12509d95-9ff9-4e7a-a147-d6fa2b766f93:
+                    required: false
+                    sortOrder: 2
+                  d0cf71ce-6815-40ea-bb3c-1100fc232560:
+                    required: false
+                    sortOrder: 3
+                  49316208-a3f7-4b64-a45b-7e290c80c5d6:
+                    required: false
+                    sortOrder: 4
+                  fdb580b9-9994-4352-bb39-52b61d578fbb:
+                    required: false
+                    sortOrder: 5
+                  0ee43e95-744a-4c4a-accf-ec274a78211b:
+                    required: false
+                    sortOrder: 6
+                  ae504739-70d1-458f-9b8b-ffe9133a3b6b:
+                    required: false
+                    sortOrder: 7
+                  8eaa86f8-42dd-4af1-a5ed-7a4c3377122f:
+                    required: true
+                    sortOrder: 8
+    siteSettings:
+      0f7ea217-e10e-4ab9-8362-a607650f7c71:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: 'properties/{slug}'
+        template: properties/_entry
+  d68709e4-087e-4afd-9ac3-4e98195ef5a3:
+    name: Home
+    handle: home
+    type: single
+    enableVersioning: false
+    propagateEntries: true
+    siteSettings:
+      0f7ea217-e10e-4ab9-8362-a607650f7c71:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: __home__
+        template: index.twig
+    entryTypes:
+      7f1c2442-e3ef-42fb-99c1-c19c55ba1c54:
+        name: Home
+        handle: home
+        hasTitleField: false
+        titleLabel: ''
+        titleFormat: '{section.name|raw}'
+        sortOrder: 1
+        fieldLayouts:
+          b4ff8faf-430f-4563-aa22-2bb5ac8bb1a8:
+            tabs:
+              -
+                name: Home
+                sortOrder: 1
+                fields:
+                  f486e081-3027-48d5-8a0a-0a03e8c8c677:
+                    required: false
+                    sortOrder: 1
+  c3192151-c659-4e50-be4d-9582e960ee70:
+    name: News
+    handle: news
+    type: channel
+    enableVersioning: true
+    propagateEntries: true
+    siteSettings:
+      0f7ea217-e10e-4ab9-8362-a607650f7c71:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: 'news/{slug}'
+        template: news/_entry
+    entryTypes:
+      5e2cbc45-94fe-4e06-8ec9-9d9207f4ce6a:
+        name: News
+        handle: news
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: ''
+        sortOrder: 1
+        fieldLayouts:
+          e4cd5250-b983-425c-a13b-58eb188c80d3:
+            tabs:
+              -
+                name: News
+                sortOrder: 1
+                fields:
+                  d689fbf7-d4a8-42f4-bb0f-9dfeaa89c7a0:
+                    required: false
+                    sortOrder: 1
+  e7e3455a-a69b-49f2-a1de-9e7c79f1adcc:
+    name: Pages
+    handle: pages
+    type: structure
+    enableVersioning: true
+    propagateEntries: true
+    siteSettings:
+      0f7ea217-e10e-4ab9-8362-a607650f7c71:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: 'pages/{slug}'
+        template: pages/_entry
+    structure:
+      uid: a4853be6-58bf-4ffe-a21f-39e0a73e863d
+      maxLevels: 1
+    entryTypes:
+      f0dc372a-cb76-4ea2-8e79-2174e4279ed9:
+        name: Pages
+        handle: pages
+        hasTitleField: true
+        titleLabel: Title
+        titleFormat: ''
+        sortOrder: 1
+        fieldLayouts:
+          764ceb52-4de9-4450-9f3f-cfc8cae59d0c:
+            tabs:
+              -
+                name: Content
+                sortOrder: 1
+                fields:
+                  ccf2da5c-ec2c-4d48-9c63-85d97379069f:
+                    required: false
+                    sortOrder: 1
+siteGroups:
+  572684b0-9680-4d19-9357-c4615feeae82:
+    name: 'Lampon Lets'
+sites:
+  0f7ea217-e10e-4ab9-8362-a607650f7c71:
+    siteGroup: 572684b0-9680-4d19-9357-c4615feeae82
+    name: 'Lampon Lets'
+    handle: default
+    language: en-GB
+    hasUrls: true
+    baseUrl: $DEFAULT_SITE_URL
+    sortOrder: 1
+    primary: true
+superTableBlockTypes:
+  677c463b-e93c-4bd1-a588-3771758b0821:
+    field: 49316208-a3f7-4b64-a45b-7e290c80c5d6
+    fields:
+      1d432868-e9d8-4f15-9e48-9eb7fa46f0d5:
+        name: Feature
+        handle: feature1
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      07745cde-efdd-48dd-a350-700f2e672009:
+        name: Feature
+        handle: feature2
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      f1cce9da-2c16-4cfd-b244-58ed12a8d4a3:
+        name: Feature
+        handle: feature3
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      a20abd09-9a4c-49c2-9075-d516fafef311:
+        name: Feature
+        handle: feature4
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      fe727cac-217f-46de-8269-430c63cebb85:
+        name: Feature
+        handle: feature5
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      819f72c3-5f60-4e0d-b25a-8da3511ab562:
+        name: Feature
+        handle: feature6
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      8200e678-06a3-413f-bbe9-4bb32fb31f58:
+        name: Feature
+        handle: feature7
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      cdbcf99a-2256-4265-a216-1d111ba60fed:
+        name: Feature
+        handle: feature8
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      12c365cb-adf2-488d-ac47-081d86c29813:
+        name: Feature
+        handle: feature9
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+      82607575-4b66-4248-9e8d-aeae7b5e82e0:
+        name: Feature
+        handle: feature10
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: ''
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      3548be58-2138-43b2-a34d-839fcdf76a0b:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              1d432868-e9d8-4f15-9e48-9eb7fa46f0d5:
+                required: false
+                sortOrder: 1
+              07745cde-efdd-48dd-a350-700f2e672009:
+                required: false
+                sortOrder: 2
+              f1cce9da-2c16-4cfd-b244-58ed12a8d4a3:
+                required: false
+                sortOrder: 3
+              a20abd09-9a4c-49c2-9075-d516fafef311:
+                required: false
+                sortOrder: 4
+              fe727cac-217f-46de-8269-430c63cebb85:
+                required: false
+                sortOrder: 5
+              819f72c3-5f60-4e0d-b25a-8da3511ab562:
+                required: false
+                sortOrder: 6
+              8200e678-06a3-413f-bbe9-4bb32fb31f58:
+                required: false
+                sortOrder: 7
+              cdbcf99a-2256-4265-a216-1d111ba60fed:
+                required: false
+                sortOrder: 8
+              12c365cb-adf2-488d-ac47-081d86c29813:
+                required: false
+                sortOrder: 9
+              82607575-4b66-4248-9e8d-aeae7b5e82e0:
+                required: false
+                sortOrder: 10
+system:
+  edition: solo
+  live: true
+  name: 'Lampon Lets'
+  timeZone: UTC
+  schemaVersion: 3.1.28
+users:
+  requireEmailVerification: true
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoVolumeUid: null
+  photoSubpath: ''
+volumes:
+  7b33aeb6-69a4-45bd-b0a9-e934b60cc259:
+    name: Properties
+    handle: properties
+    type: craft\volumes\Local
+    hasUrls: true
+    url: '@web/images/properties'
+    settings:
+      path: '@webroot/images/properties'
+    sortOrder: 1

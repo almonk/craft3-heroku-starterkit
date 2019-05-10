@@ -1,0 +1,64 @@
+{% extends "_layout" %}
+{% block title %}
+  Properties
+{% endblock %}
+
+{% block main %}
+  {% if craft.app.request.getParam('min') %}
+    {% set priceQuery = ["and", ">=" ~ craft.app.request.getParam('min'), "<=" ~ craft.app.request.getParam('max')] %}
+  {% else %}
+    {% set priceQuery = ">0" %}
+  {% endif %}
+
+
+  <div class="panel-hero mt3 mt4-ns pt3">
+    <div class="mw8 center">
+      <div class="flex justify-between">
+        <div class="flex-auto">
+          <%= render partial: "shared/search", locals: { q: @q } %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% set entries = craft.entries()
+        .section('properties')
+        .orderBy('price asc')
+        .price(priceQuery)
+        .all() %}
+
+  <div class="bg-light-teal">
+    <div class="flex flex-wrap mw8 center pb5">
+      {% for entry in entries %}
+        <a href="{{entry.url}}" class="pa3-ns mb2 mb0-ns ph3 w-100 w-third-ns mb2-ns link flex">
+          <div class="shadow-1 bg-white relative flex-auto flex flex-column-ns">
+            <div class="h5-ns overflow-hidden mw4 mw-100-ns w-100-ns bg-light-gray flex items-center justify-center">
+              <img src="{{entry.images.first().url}}" class="w-100">
+            </div>
+
+            <div class="pa3-ns pa2 flex-auto">
+              <div class="mb1 brand-font f3-ns black">
+                {{entry.price|currency('GBP', [], [], true)}}
+                PCM
+              </div>
+              <div class="mb2-ns mb1 dark-gray truncate">
+                {{entry.title}}
+              </div>
+              <div class="gray mb2-ns truncate">
+                {{entry.bedrooms}}
+                bedrooms
+              </div>
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+    <% else %>
+      <div class="pv3 pv5-ns tc mw8 center black-60 ph3">
+        <div class="br-pill shadow-1 bg-white pv2 lh-copy ph4">
+          No properties match your search criteria.
+          <%= link_to "Reset filters", properties_path, class: "blue link" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>{% endblock %}

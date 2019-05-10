@@ -1,0 +1,48 @@
+{% extends "_layout" %}
+
+{% block title %}
+  {{entry.title}}
+{% endblock %}
+
+{% block main %}
+  <div class="panel-hero mt3 mt4-ns pt3">
+    <div class="mw7 center ph3 brand-font f2 pt3">
+      {{entry.title}}
+    </div>
+  </div>
+
+  <div class="bg-light-teal">
+    <div class="mw7 center ph3 pt3 pb2 large-body-copy">
+      <grid columns="8">
+        <c></c>
+        <c span="3">
+          {% for block in entry.contentBuilder.all() %}
+            {% if block.type == "heading" %}
+              <h3>{{ block.headingText }}</h3>
+            {% elseif block.type == "paragraph" %}
+                {{block.paragraphCopy}}
+            {% elseif block.type == "feesTable" %}
+              <table cellspacing="0" class="w-100">
+                <tr>
+                  <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Fee</th>
+                  <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Without VAT</th>
+                  <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">With VAT</th>
+                  <th class="fw6 bb b--black-20 tl pb3 pr3 bg-white">Description</th>
+                </tr>
+                {% for row in block.feesTable %}
+                  <tr>
+                    <td class="pv3 pr3 bb b--black-20">{{row.fee}}</td>
+                    <td class="pv3 pr3 bb b--black-20">{{row.withoutVat|currency('GBP')}}</td>
+                    {% set vatFigure = ((row.withoutVat * 0.2 ) + row.withoutVat) %}
+                    <td class="pv3 pr3 bb b--black-20">{{vatFigure|currency('GBP')}}</td>
+                    <td class="pv3 pr3 bb b--black-20">{{row.description}}</td>
+                  </tr>
+                {% endfor %}
+              </table>
+            {% endif %}
+          {% endfor %}
+        </c>
+      </grid>
+    </div>
+  </div>
+{% endblock %}

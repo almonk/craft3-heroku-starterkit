@@ -1,0 +1,153 @@
+{% extends "_layout" %}
+
+{% block title %}
+    {{entry.address}}
+{% endblock %}
+
+{% block main %}
+  <div class="bg-teal mt3 mt4-ns pv2">
+    <div class="mw8 center ph3">
+      <div class="mt3 mb3 f3 f2-ns flex items-center flex-column flex-row-ns justify-between">
+        <div class="brand-font flex-auto">
+          {{entry.address}}
+        </div>
+        <div class="brand-font-reg">
+          {{entry.price|currency('GBP', [], [], true)}}
+          PCM
+        </div>
+      </div>
+
+      <div class="flex flex-column flex-row-ns">
+        <div class="w-70-ns pr4-ns">
+          <div class="fotorama mb3 bg-white pa2 pa3-ns shadow-1" data-allowfullscreen="true" data-fit="cover" data-keyboard="true" data-maxheight="450" data-nav="thumbs" data-ratio="400/300" data-width="100%">
+            {% for image in entry.images %}
+              <img src="{{image.url}}">
+            {% endfor %}
+          </div>
+        </div>
+        <div class="w-30-ns flex flex-column">
+          <div class="bb b--black-10 pv2 flex justify-between lh-copy">
+            <span>Bedrooms</span>
+            <span class="b">{{entry.bedrooms}}</span>
+          </div>
+          <div class="bb b--black-10 pv2 flex justify-between lh-copy">
+            <span>Bathrooms</span>
+            <span class="b">{{entry.bathrooms}}</span>
+          </div>
+
+          <div class="bb b--black-10 pv2 flex justify-between lh-copy">
+            <span class="b">
+              {{entry.features.feature1}}
+            </span>
+          </div>
+          <div class="bb b--black-10 pv2 flex justify-between lh-copy">
+            <span class="b">
+              {{entry.features.feature1}}
+            </span>
+          </div>
+
+          <div class="bb b--black-10 pv2 flex justify-between lh-copy">
+            <span class="b">
+              {{entry.features.feature2}}
+            </span>
+          </div>
+
+          <div class="bb b--black-10 pv2 flex justify-between lh-copy">
+            <span class="b">
+              {{entry.features.feature3}}
+            </span>
+          </div>
+
+          <div class="bb b--black-10 pv2 flex justify-between lh-copy">
+            <span class="b">
+              {{entry.features.feature4}}
+            </span>
+          </div>
+
+          <div class="bb b--black-10 pv2 flex justify-between lh-copy">
+            <span class="b">
+              {{entry.features.feature5}}
+            </span>
+          </div>
+
+          <div class="bb b--black-10 pv2 flex justify-between lh-copy">
+            <span class="b">
+              {{entry.features.feature6}}
+            </span>
+          </div>
+
+          <div class="bb b--black-10 pv2 flex justify-between lh-copy">
+            <span class="b">
+              {{entry.features.feature7}}
+            </span>
+          </div>
+
+          <div class="bb b--black-10 pv2 flex justify-between lh-copy">
+            <span class="b">
+              {{entry.features.feature8}}
+            </span>
+          </div>
+
+          <div class="bb b--black-10 pv2 flex justify-between lh-copy">
+            <span class="b">
+              {{entry.features.feature9}}
+            </span>
+          </div>
+
+          <div class="bb b--black-10 pv2 flex justify-between lh-copy">
+            <span class="b">
+              {{entry.features.feature10}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-light-teal">
+    <div class="mw8 center pv3 f4-ns items-center flex flex-column flex-row-ns items-stretch items-center-ns justify-between ph3">
+      <div class="lh-copy tc tl-ns">
+        <span>Interested in viewing this property?</span>
+        <b>Call us now on
+          {{companyInfo.phoneNumber}}</b>
+      </div>
+      <div class="w-30-ns">
+        <%= link_to 'Request viewing', forms_viewing_path(pid: @property.slug), class: "bg-yellow button-primary black link db ph4-ns pv3 br-pill shadow-2 tc mt2 mt0-ns" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="cf w-100 mw8 center ph3">
+    <div class="fl-ns w-70-ns w-100 dark-gray lh-copy pt3 pr4">
+      <p class="f4 lh-copy mb4 measure-wide"><%= raw @property.main_summary %></p>
+
+      <div class="mt4 bt b--light-gray">
+        <div class="b mv3">Floorplans</div>
+        <% @property.floorplans.each do |image| %>
+          <a href="<%= image %>" data-fancybox="images" data-turbolinks="false">
+            <%= image_tag image %>
+          </a>
+        <% end %>
+        <% if @property.floorplans.count == 0 %>
+          <p class="gray">Floorplans coming soon.</p>
+        <% end %>
+      </div>
+
+      <div class="mt4 bt b--light-gray">
+        <div class="b mv3">EPC Graphs</div>
+        <% if @property.epc_graphs %>
+          <%= image_tag @property.epc_graphs %>
+        <% else %>
+          <p class="gray">EPC Graphs coming soon.</p>
+        <% end %>
+      </div>
+
+    </div>
+    <div class="fl w-30-ns w-100 pt3">
+      <% if @property.latitude && @property.longitude %>
+        <div class="mv3" id="mapid" style="height: 360px;"></div>
+      <% end %>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>
+      {% block title %}{% endblock %}
+      &ndash; Lampon Lets
+    </title>
+    {% do view.registerCssFile("/css/tachyons.css") %}
+    {% do view.registerCssFile("/css/main.css") %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.css" rel="stylesheet"/>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.min.js"></script>
+    {% do view.registerJsFile("/js/main.js") %}
+  </head>
+  <body class="sans-serif">
+    <header class="mt3 pt3 ph3 flex flex-column flex-row-ns justify-between items-center mw8 center">
+      <a href="{{siteUrl}}" class="w5">
+        <img src="{{siteUrl}}images/site/logo.svg"/>
+      </a>
+      <div class="self-stretch self-center-ns flex mt2 mt0-ns justify-center">
+        <a class="black link pv3 ph2" href="/">Home</a>
+        <a class="black link pv3 ph2" href="{{siteUrl}}properties">Properties</a>
+        <a class="black link pv3 ph2" href="{{siteUrl}}pages/landlords">Landlords</a>
+        <a class="black link pv3 ph2" href="{{siteUrl}}pages/tenants">Tenants</a>
+        <a class="black link pv3 ph2 mr2" href="{{siteUrl}}pages/about">About</a>
+        <span class="black link pv3 ph2 fw6">
+          <div class="flex items-center">
+            {{companyInfo.phoneNumber}}
+          </div>
+        </span>
+      </div>
+    </header>
+
+    {% block main %}{% endblock %}
+
+    <div class="bt b--light-gray">
+      <div class="dn db-ns">
+        <div class="mw8 center flex justify-center pt4 ph3 o-90">
+          <%= image_tag "affiliations.png", width: 702, height: 75  %>
+        </div>
+      </div>
+      <footer class="mt4 ph3 pb5 mw8 center gray flex flex-column flex-row-ns justify-between">
+        <div class="w-25-ns mb3 pr4">
+          <img src="/images/site/tagline.svg"/>
+        </div>
+        <div class="w-25-ns mb3">
+          <div class="pb3">&copy;
+            {{ "now"|date("Y") }}
+            Lampon Lets Limited</div>
+          <div class="pb3">Registered company
+            <%= company_reg %></div>
+        </div>
+        <div class="w-25-ns mb3">
+          <div class="flex items-center pb3">
+            <i class="material-icons md-18 mr2">email</i>
+            <%= link_to company_email, forms_contact_path, class: "gray link" %>
+          </div>
+          <div class="flex items-center pb3">
+            <i class="material-icons md-18 mr2">phone</i>
+            <%= company_phone %>
+          </div>
+          <div class="flex items-start">
+            <i class="material-icons md-18 mr2 pt1">business</i>
+            <%= link_to "https://www.google.com/maps/place/Lampon+Lets/@50.9717831,0.0968872,15z/data=!4m5!3m4!1s0x0:0x5eafb4fdbd5f688!8m2!3d50.9717831!4d0.0968872", class: "gray link" do %>
+              <p class="lh-copy ma0">Prospect House,<br/>160 High St,<br/>Uckfield<br/>TN22 1AT</p>
+            <% end %>
+          </div>
+        </div>
+        <div class="w-25-ns">
+          <%= link_to 'Home', root_path, class: "gray link pb3 db" %>
+          <%= link_to 'Properties', properties_path, class: "gray link pb3 db" %>
+          <%= link_to 'About', page_path('about'), class: "gray link pb3 db" %>
+          <%= link_to 'Request a valuation', forms_valuation_path, class: "gray link pb3 db" %>
+          <%= link_to 'Privacy policy', page_path('privacy-policy'), class: "gray link pb3 db" %>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

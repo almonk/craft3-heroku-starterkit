@@ -1,81 +1,108 @@
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta charset="utf-8" />
-    <title>Welcome to Craft CMS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <meta name="referrer" content="origin-when-cross-origin" />
-    <style>
-        html,
-        body {
-          font-size: 20px;
-          -webkit-text-size-adjust: 100%;
-          height: 100%;
-          font-family: system-ui, BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-        }
+{% extends "_layout" %}
+{% block title %}
+  Home
+{% endblock %}
 
-        body {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin: 0;
-          padding: 0;
-          background-color: #F5F5F5;
-          color: #333;
-          text-align: center;
-        }
+{% block main %}
+  <div class="panel-hero flex flex-column items-center mt2 mt4-ns br3 br0-ns ma2 ma0-ns">
+    <div class="pv3 pv5-l ph3 mw8 center tc flex flex-column items-center">
+      <span class="brand-font f3 f2-ns mb2 ph5-ns mw8">
+        We’re a letting agent that’s totally committed to making life a whole lot easier for landlords and tenants in East Sussex.
+      </span>
+      <span class="f5 f4-ns dark-gray mb2 ph5-ns lh-copy mw8 dn db-ns">
+        Lampon Lets are experts in rental property and have outstanding knowledge and experience of the local market. This, coupled with our membership of top professional and industry bodies, means we can offer superior guidance and safeguards to those who use our services.
+      </span>
 
-        h1 {
-          margin-top: 0;
-          margin-bottom: 1.4em;
-        }
-
-        p {
-          line-height: 1.4em;
-          margin-bottom: 1.4em;
-        }
-
-        ul {
-          line-height: 1.35em;
-          list-style-type: none;
-          max-width: 600px;
-          width: 100%;
-        }
-
-        ul li {
-          margin-bottom: 0.5em;
-          text-align: left;
-        }
-
-        a {
-          color: #0D78F2;
-          text-decoration: none;
-        }
-
-        a:hover {
-          text-decoration: underline;
-        }
-
-        strong {
-          color: #ACD828;
-        }
-    </style>
-</head>
-<body>
-  <div class="container">
-    <h1>🚀 You made it!</h1>
-    <ul>
-      {% if currentUser %}<li>User: {{ currentUser.friendlyName }}</li>{% endif %}
-      <li>Your Site Url is: {{ siteUrl }}</li>
-      <li>Your Site Name is: {{ siteName }}</li>
-      <li>Today is {{ now|date('M j, Y') }}</li>
-      {% if craft.config.devMode %}
-        <li>Your are in <strong>dev</strong> environment</li>
-      {% else %}
-        <li>Dev environment is <strong>not active</strong></li>
-      {% endif %}
-    </ul>
+      <div class="flex flex-row justify-center self-stretch">
+        <%= link_to 'Request a valuation', forms_valuation_path, class: "bg-yellow button-primary black link tc db ph3 ph4-ns pv2 pv3-ns br-pill mv2 shadow-2 f4-ns f5 mr2 mr3-ns" %>
+        <%= link_to "View our properties", properties_path, class: 'bg-white black link ph3 ph4-ns pv2 pv3-ns br-pill mv2 tc shadow-2 f4-ns f5' %>
+      </div>
+    </div>
   </div>
-</body>
-</html>
+
+  <div class="bg-white">
+    <div class="mw8 ph3 center flex flex-row justify-between items-center-ns items-start mb3 pt4">
+      <div class="f4-ns f5">
+        Recent properties&hellip;
+      </div>
+      <div>
+        View all
+      </div>
+    </div>
+    <div class="flex flex-wrap mw8 center pb4 justify-center">
+      {% set entries = craft.entries()
+        .section('properties')
+        .limit(3)
+        .orderBy('jupixId desc')
+        .all() %}
+
+      {% for entry in entries %}
+        <a href="{{entry.url}}" class="pa3-ns mb2 mb0-ns ph3 w-100 w-third-ns mb2-ns link flex">
+          <div class="shadow-1 bg-white relative flex-auto flex flex-column-ns">
+            <div class="h5-ns overflow-hidden mw4 mw-100-ns w-100-ns bg-light-gray flex items-center justify-center">
+              <img src="{{entry.images.first().url}}" class="w-100">
+            </div>
+
+            <div class="pa3-ns pa2 flex-auto">
+              <div class="mb1 brand-font f3-ns black">
+                {{entry.price|currency('GBP', [], [], true)}}
+                PCM
+              </div>
+              <div class="mb2-ns mb1 dark-gray truncate">
+                {{entry.title}}
+              </div>
+              <div class="gray mb2-ns truncate">
+                {{entry.bedrooms}} bedrooms
+              </div>
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="bg-white mb4">
+    <div class="mw8 ph3 center flex flex-column flex-row-ns justify-between items-center-ns items-start mb3">
+      <div class="f4-ns f5 flex-auto">
+        Visit us
+      </div>
+    </div>
+    <div class="flex flex-wrap mw8 pb3 pt3 center">
+      <div class="w-100 w-two-thirds-ns ph3">
+        <div class="br2 overflow-hidden shadow-1" id="mapid" style="width: 100%; height:300px;"></div>
+      </div>
+
+      <div class="w-100 w-third-ns ph3 pt4 pt0-ns">
+        <p class="lh-copy ma0 mb2 fw6">Pop in and see us.</p>
+        <p class="lh-copy ma0 mb2">Prospect House, 160 High St, Uckfield,<br/>East Sussex, TN22 1AT</p>
+        <p class="lh-copy ma0 mt3 mb1">We are open:</p>
+        <table class="collapse mb2 w-100">
+          <tr>
+            <td class="pv2 pr3 bb b--light-silver">
+              Monday &mdash; Friday
+            </td>
+            <td class="pv2 pr3 bb b--light-silver">
+              9am &mdash; 6pm
+            </td>
+          </tr>
+          <tr>
+            <td class="pv2 pr3 bb b--light-silver">
+              Saturday
+            </td>
+            <td class="pv2 pr3 bb b--light-silver">
+              9am &mdash; Noon
+            </td>
+          </tr>
+          <tr>
+            <td class="pv2 pr3">
+              Sunday
+            </td>
+            <td class="pv2 pr3 silver">
+              Closed
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}

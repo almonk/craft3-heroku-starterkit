@@ -1,0 +1,27 @@
+<form accept-charset="UTF-8" action="" method="post">
+    {{ csrfInput() }}
+    <input name="action" type="hidden" value="contact-form/send">
+    {{ redirectInput('forms/success') }}
+
+    <h3>
+        <label for="from-name">Your Name</label>
+    </h3>
+    <input id="from-name" type="text" name="fromName" value="{{ message.fromName ?? '' }}">
+
+    <h3>
+        <label for="from-email">Your Email</label>
+    </h3>
+    <input id="from-email" type="email" name="fromEmail" value="{{ message.fromEmail ?? '' }}">
+
+    <h3>
+        <label for="subject">Subject</label>
+    </h3>
+    <input id="subject" type="text" name="subject" value="{{ message.subject ?? '' }}">
+
+    <h3>
+        <label for="message">Message</label>
+    </h3>
+    <textarea cols="40" id="message" name="message" rows="10">{{ message.message ?? '' }}</textarea>
+
+    <input type="submit" value="Send">
+</form>
